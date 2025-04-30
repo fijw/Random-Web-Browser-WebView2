@@ -1,0 +1,777 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F5AB8D68-A52C-4684-AA98-06E078FE7E83}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>something</RootNamespace>
+    <AssemblyName>something</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Web.WebView2.Core, Version=1.0.2792.45, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.WebView2.1.0.2792.45\lib\net462\Microsoft.Web.WebView2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebView2.WinForms, Version=1.0.2792.45, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.WebView2.1.0.2792.45\lib\net462\Microsoft.Web.WebView2.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebView2.Wpf, Version=1.0.2792.45, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.WebView2.1.0.2792.45\lib\net462\Microsoft.Web.WebView2.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CloseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CloseForm.Designer.cs">
+      <DependentUpon>CloseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KeyboardHook.cs" />
+    <Compile Include="FullscreenForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FullscreenForm.Designer.cs">
+      <DependentUpon>FullscreenForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RefreshButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RefreshButton.Designer.cs">
+      <DependentUpon>RefreshButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DwmHelper.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CloseForm.resx">
+      <DependentUpon>CloseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FullscreenForm.resx">
+      <DependentUpon>FullscreenForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\assets\assets.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\assets\thirdparties\pgl.yoyo.org\as\README.md" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\assets\thirdparties\pgl.yoyo.org\as\serverlist" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\assets\thirdparties\publicsuffix.org\list\effective_tld_names.dat" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\assets\thirdparties\urlhaus-filter\LICENSE.md" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\css\fonts\Inter\Inter-Regular.woff2" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\css\fonts\Inter\Inter-SemiBold.woff2" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\css\fonts\Metropolis\Metropolis-Regular.woff2" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\css\fonts\Metropolis\Metropolis-SemiBold.woff2" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\css\fonts\Metropolis\README.md" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\css\fonts\Metropolis\UNLICENSE" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\README" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\wasm\biditrie.wasm" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\wasm\biditrie.wat" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\wasm\hntrie.wasm" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\wasm\hntrie.wat" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\wasm\README.md" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\lib\codemirror\LICENSE" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\lib\codemirror\README.md" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\lib\csstree\LICENSE" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\lib\diff\README.md" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\lib\hsluv\LICENSE" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\lib\hsluv\README" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\lib\js-beautify\LICENSE" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\lib\js-beautify\README" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\lib\lz4\lz4-block-codec.wasm" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\lib\lz4\lz4-block-codec.wat" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\lib\lz4\README.md" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\lib\publicsuffixlist\wasm\publicsuffixlist.wasm" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\lib\publicsuffixlist\wasm\publicsuffixlist.wat" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\lib\publicsuffixlist\wasm\README.md" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\lib\regexanalyzer\CHANGES.md" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\lib\regexanalyzer\README.md" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\managed_storage.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\manifest.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\web_accessible_resources\empty" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\web_accessible_resources\noop.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\ar\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\az\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\be\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\bg\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\bn\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\br_FR\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\bs\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\ca\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\cs\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\cv\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\cy\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\da\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\de\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\el\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\en\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\en_GB\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\eo\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\es\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\et\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\eu\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\fa\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\fil\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\fi\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\fr\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\fy\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\gl\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\gu\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\he\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\hi\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\hr\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\hu\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\hy\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\id\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\it\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\ja\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\ka\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\kk\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\kn\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\ko\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\lt\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\lv\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\mk\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\ml\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\mr\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\ms\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\nb\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\nl\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\no\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\oc\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\pa\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\pl\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\pt_BR\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\pt_PT\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\ro\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\ru\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\si\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\sk\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\sl\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\so\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\sq\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\sr\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\sv\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\sw\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\ta\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\te\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\th\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\tr\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\uk\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\ur\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\vi\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\zh_CN\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_locales\zh_TW\messages.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_metadata\computed_hashes.json" />
+    <None Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\_metadata\verified_contents.json" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\1p-filters.html" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\3p-filters.html" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\about.html" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\advanced-settings.html" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\asset-viewer.html" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\assets\resources\scriptlets.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\assets\thirdparties\easylist\easylist.txt" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\assets\thirdparties\easylist\easyprivacy.txt" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\assets\thirdparties\urlhaus-filter\urlhaus-filter-online.txt" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\assets\ublock\badlists.txt" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\assets\ublock\badware.min.txt" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\assets\ublock\filters.min.txt" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\assets\ublock\privacy.min.txt" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\assets\ublock\quick-fixes.min.txt" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\assets\ublock\unbreak.min.txt" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\background.html" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\cloud-ui.html" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\code-viewer.html" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\css\1p-filters.css" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\css\3p-filters.css" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\css\about.css" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\css\advanced-settings.css" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\css\asset-viewer.css" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\css\click2load.css" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\css\cloud-ui.css" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\css\code-viewer.css" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\css\codemirror.css" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\css\common.css" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\css\dashboard-common.css" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\css\dashboard.css" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\css\devtools.css" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\css\document-blocked.css" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\css\dom-inspector.css" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\css\dyna-rules.css" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\css\epicker-ui.css" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\css\fa-icons.css" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\css\fonts\Inter\LICENSE.txt" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\css\logger-ui-inspector.css" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\css\logger-ui.css" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\css\popup-fenix.css" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\css\settings.css" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\css\support.css" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\css\themes\default.css" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\css\whitelist.css" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\dashboard.html" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\devtools.html" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\document-blocked.html" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\dyna-rules.html" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\cloud.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\ad.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\ae.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\af.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\ag.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\ai.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\al.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\am.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\ao.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\aq.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\ar.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\as.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\at.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\au.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\aw.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\ax.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\az.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\ba.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\bb.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\bd.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\be.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\bf.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\bg.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\bh.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\bi.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\bj.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\bl.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\bm.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\bn.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\bo.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\bq.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\br.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\bs.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\bt.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\bv.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\bw.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\by.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\bz.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\ca.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\cc.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\cd.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\cf.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\cg.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\ch.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\ci.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\ck.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\cl.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\cm.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\cn.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\co.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\cr.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\cu.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\cv.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\cw.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\cx.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\cy.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\cz.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\de.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\dj.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\dk.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\dm.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\do.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\dz.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\ec.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\ee.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\eg.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\eh.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\er.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\es.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\et.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\fi.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\fj.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\fk.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\fm.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\fo.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\fr.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\ga.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\gb-eng.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\gb-nir.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\gb-sct.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\gb-wls.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\gb.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\gd.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\ge.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\gf.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\gg.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\gh.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\gi.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\gl.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\gm.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\gn.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\gp.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\gq.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\gr.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\gs.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\gt.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\gu.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\gw.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\gy.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\hk.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\hm.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\hn.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\hr.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\ht.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\hu.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\id.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\ie.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\il.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\im.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\in.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\io.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\iq.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\ir.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\is.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\it.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\je.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\jm.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\jo.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\jp.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\ke.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\kg.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\kh.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\ki.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\km.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\kn.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\kp.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\kr.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\kw.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\ky.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\kz.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\la.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\lb.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\lc.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\li.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\lk.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\lr.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\ls.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\lt.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\lu.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\lv.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\ly.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\ma.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\mc.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\md.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\me.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\mf.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\mg.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\mh.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\mk.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\ml.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\mm.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\mn.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\mo.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\mp.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\mq.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\mr.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\ms.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\mt.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\mu.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\mv.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\mw.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\mx.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\my.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\mz.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\na.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\nc.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\ne.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\nf.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\ng.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\ni.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\nl.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\no.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\np.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\nr.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\nu.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\nz.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\om.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\pa.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\pe.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\pf.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\pg.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\ph.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\pk.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\pl.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\pm.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\pn.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\pr.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\ps.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\pt.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\pw.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\py.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\qa.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\re.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\ro.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\rs.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\ru.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\rw.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\sa.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\sb.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\sc.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\sd.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\se.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\sg.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\sh.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\si.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\sj.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\sk.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\sl.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\sm.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\sn.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\so.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\sr.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\ss.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\st.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\sv.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\sx.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\sy.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\sz.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\tc.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\td.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\tf.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\tg.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\th.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\tj.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\tk.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\tl.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\tm.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\tn.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\to.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\tr.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\tt.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\tv.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\tw.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\tz.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\ua.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\ug.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\um.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\us.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\uy.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\uz.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\va.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\vc.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\ve.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\vg.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\vi.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\vn.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\vu.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\wf.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\ws.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\xk.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\ye.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\yt.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\za.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\zm.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\flags-of-the-world\zw.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\fontawesome\fontawesome-defs.svg" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\fontawesome\LICENSE.txt" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\help16.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\icon_128.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\icon_16-loading.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\icon_16-off.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\icon_16.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\icon_32-loading.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\icon_32-off.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\icon_32.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\icon_64-loading.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\icon_64-off.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\icon_64.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\material-design.svg" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\photon.svg" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\ublock-defs.svg" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\img\ublock.svg" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\is-webrtc-supported.html" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\1p-filters.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\3p-filters.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\about.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\advanced-settings.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\asset-viewer.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\assets.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\background.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\base64-custom.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\benchmarks.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\biditrie.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\broadcast.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\cachestorage.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\click2load.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\cloud-ui.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\code-viewer.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\codemirror\search-thread.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\codemirror\search.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\codemirror\ubo-dynamic-filtering.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\codemirror\ubo-static-filtering.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\commands.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\console.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\contentscript-extra.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\contentscript.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\contextmenu.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\cosmetic-filtering.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\dashboard-common.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\dashboard.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\devtools.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\diff-updater.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\document-blocked.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\dom-inspector.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\dom.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\dyna-rules.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\dynamic-net-filtering.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\epicker-ui.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\fa-icons.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\filtering-context.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\filtering-engines.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\hnswitches.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\hntrie.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\html-filtering.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\httpheader-filtering.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\i18n.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\is-webrtc-supported.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\logger-ui-inspector.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\logger-ui.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\logger.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\lz4.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\messaging.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\mrucache.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\pagestore.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\popup-fenix.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\redirect-engine.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\redirect-resources.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\reverselookup-worker.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\reverselookup.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\s14e-serializer.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\scriptlet-filtering-core.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\scriptlet-filtering.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\scriptlets\cosmetic-logger.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\scriptlets\cosmetic-off.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\scriptlets\cosmetic-on.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\scriptlets\cosmetic-report.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\scriptlets\dom-inspector.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\scriptlets\dom-survey-elements.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\scriptlets\dom-survey-scripts.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\scriptlets\epicker.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\scriptlets\load-3p-css.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\scriptlets\load-large-media-all.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\scriptlets\load-large-media-interactive.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\scriptlets\noscript-spoof.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\scriptlets\scriptlet-loglevel-1.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\scriptlets\scriptlet-loglevel-2.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\scriptlets\should-inject-contentscript.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\scriptlets\subscriber.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\scriptlets\updater.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\settings.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\start.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\static-dnr-filtering.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\static-ext-filtering-db.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\static-ext-filtering.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\static-filtering-io.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\static-filtering-parser.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\static-net-filtering.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\storage.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\support.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\tab.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\tasks.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\text-encode.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\text-utils.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\theme.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\traffic.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\ublock.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\uri-utils.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\url-net-filtering.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\utils.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\vapi-background-ext.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\vapi-background.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\vapi-client.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\vapi-common.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\vapi.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\webext.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\js\whitelist.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\lib\codemirror\addon\comment\comment.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\lib\codemirror\addon\display\panel.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\lib\codemirror\addon\edit\closebrackets.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\lib\codemirror\addon\edit\matchbrackets.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\lib\codemirror\addon\fold\foldcode.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\lib\codemirror\addon\fold\foldgutter.css" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\lib\codemirror\addon\fold\foldgutter.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\lib\codemirror\addon\hint\show-hint.css" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\lib\codemirror\addon\hint\show-hint.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\lib\codemirror\addon\merge\merge.css" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\lib\codemirror\addon\merge\merge.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\lib\codemirror\addon\scroll\annotatescrollbar.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\lib\codemirror\addon\search\matchesonscrollbar.css" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\lib\codemirror\addon\search\searchcursor.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\lib\codemirror\addon\selection\active-line.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\lib\codemirror\lib\codemirror.css" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\lib\codemirror\lib\codemirror.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\lib\codemirror\mode\css\css.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\lib\codemirror\mode\htmlmixed\htmlmixed.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\lib\codemirror\mode\javascript\javascript.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\lib\codemirror\mode\xml\xml.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\lib\codemirror\theme\night.css" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\lib\csstree\css-tree.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\lib\diff\swatinem_diff.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\lib\hsluv\hsluv-0.1.0.min.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\lib\js-beautify\beautifier.min.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\lib\lz4\lz4-block-codec-any.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\lib\lz4\lz4-block-codec-js.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\lib\lz4\lz4-block-codec-wasm.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\lib\publicsuffixlist\publicsuffixlist.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\lib\punycode.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\lib\regexanalyzer\regex.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\LICENSE.txt" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\logger-ui.html" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\no-dashboard.html" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\popup-fenix.html" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\settings.html" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\support.html" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\web_accessible_resources\1x1.gif" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\web_accessible_resources\2x2.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\web_accessible_resources\32x32.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\web_accessible_resources\3x2.png" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\web_accessible_resources\amazon_ads.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\web_accessible_resources\amazon_apstag.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\web_accessible_resources\ampproject_v0.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\web_accessible_resources\chartbeat.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\web_accessible_resources\click2load.html" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\web_accessible_resources\dom-inspector.html" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\web_accessible_resources\doubleclick_instream_ad_status.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\web_accessible_resources\epicker-ui.html" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\web_accessible_resources\fingerprint2.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\web_accessible_resources\fingerprint3.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\web_accessible_resources\google-analytics_analytics.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\web_accessible_resources\google-analytics_cx_api.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\web_accessible_resources\google-analytics_ga.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\web_accessible_resources\google-analytics_inpage_linkid.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\web_accessible_resources\google-ima.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\web_accessible_resources\googlesyndication_adsbygoogle.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\web_accessible_resources\googletagmanager_gtm.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\web_accessible_resources\googletagservices_gpt.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\web_accessible_resources\hd-main.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\web_accessible_resources\nobab.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\web_accessible_resources\nobab2.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\web_accessible_resources\noeval-silent.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\web_accessible_resources\noeval.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\web_accessible_resources\nofab.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\web_accessible_resources\noop-0.1s.mp3" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\web_accessible_resources\noop-0.5s.mp3" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\web_accessible_resources\noop-1s.mp4" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\web_accessible_resources\noop-vast2.xml" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\web_accessible_resources\noop-vast3.xml" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\web_accessible_resources\noop-vast4.xml" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\web_accessible_resources\noop-vmap1.xml" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\web_accessible_resources\noop.css" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\web_accessible_resources\noop.html" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\web_accessible_resources\noop.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\web_accessible_resources\noop.txt" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\web_accessible_resources\outbrain-widget.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\web_accessible_resources\popads-dummy.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\web_accessible_resources\popads.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\web_accessible_resources\prebid-ads.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\web_accessible_resources\README.txt" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\web_accessible_resources\scorecardresearch_beacon.js" />
+    <Content Include="extensions\odfafepnkmbhccpbejgmiehpchacaeak\1.60.0_0\whitelist.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Microsoft.Web.WebView2.1.0.2792.45\build\Microsoft.Web.WebView2.targets" Condition="Exists('..\packages\Microsoft.Web.WebView2.1.0.2792.45\build\Microsoft.Web.WebView2.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Web.WebView2.1.0.2792.45\build\Microsoft.Web.WebView2.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Web.WebView2.1.0.2792.45\build\Microsoft.Web.WebView2.targets'))" />
+  </Target>
+</Project>
